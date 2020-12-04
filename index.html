@@ -2,26 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Memory Game!</title>
+    <meta name="description" content="Memory Card game, matching images" />
+    <meta name="keywords" content="memory game" />
+    <meta name="author" content="Pritisha Kumar" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="brain.ico"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+    <title>Memory Game!</title>
   </head>
 
   <body>
-  <header>
-    <h1>Memory Game!</h1>
-    <label for"numCard">How many cards? Even numbers only:</label>
-    <input type="number" id="numCard" value="10" required />
-    <br />
-    <button id="reset">Start New Game</button>
-    <br />
-    <span>  Score:  </span><span id="score">--</span>
-    <span>  High Score:  </span><span id="highScore">--</span>
-  </header>
+  <div id="viewport"> 
+    <header>
+      <h1>Memory Game!</h1>
+      <p>
+        Select the number of cards to play with, then press the Start button. Click on cards to find the matching image pairs.
+      </p>
+      <label for"numCard">How many cards? Even numbers only:</label>
+        <input type="number" id="numCard" value="10" required />
+        <button id="reset">Start New Game</button>
+      <br />
+      <p>Score:  <span id="score"> -- </span> High Score:  <span id="highScore">--</span></p>
+    </header>
+
     <div id="game">
     </div>
-  
-    <script src="script.js"></script>
+
+  </div>
+  <script src="script.js"></script>
   </body>
 
 </html>

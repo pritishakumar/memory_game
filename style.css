@@ -1,6 +1,16 @@
 body {
   background-image: linear-gradient(to bottom right, rgb(0, 101, 252), rgb(255, 217, 2));
-  height: 100vh;
+  height: 98vh;
+  width:98vw;
+  font-family: 'Ubuntu', sans-serif;
+  overflow-y: hidden;
+}
+
+#viewport { 
+  /*to maintain smooth background*/
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 button {
@@ -9,16 +19,26 @@ button {
   box-shadow: 2px 2px 1px 1px grey;
 }
 
-#game .slot {
-  /* background-color: grey; */
-  width: 150px;
-  height: 200px;
+header {
+  background-color: rgba(255, 255, 255, 0.25);
+  margin: 10px;
+}
+
+#game { /*full game area*/
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;  
+}
+
+#game .slot { /*each card 3D card area*/
+  width: 75px;
+  height: 100px;
   margin: 10px;
   display: inline-block;
   perspective: 1000px;
 }
 
-.card {
+.card { /*each card with 2 sides */
   position: relative;
   width: 100%;
   height: 100%;
@@ -29,15 +49,18 @@ button {
   box-sizing: border-box;
 }
 
-.front{
-  background-color: rgb(2, 141, 255);
+.front{ /*anonymous side*/
+  background-image: url(cardBack.png);
+  background-size: cover;
 }
 
-.back{
+.back{ /*hidden side, flipped upon card generation*/
   transform: rotateY(180deg);
+  border: 5px solid white; */
 }
 
 .front,.back {
+  /*common positioning of card faces onto card div*/
   padding: 0;
   position: absolute;
   width: 100%;
@@ -45,14 +68,24 @@ button {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   box-sizing: border-box;
-  border-radius: 20px;
-  border: 10px solid white;
+  border-radius: 10px;
+  
 }
 
-#flipped1.card,#flipped2.card,.matched.card   {
+#flipped1.card,#flipped2.card,.matched.card {
+  /*action to flip a card, triggered by the class*/
   transform: rotateY(180deg);
 }
 
+@media screen and (min-width: 550px) {
+/*bigger card sizes for non-mobile screens*/
+  #game .slot {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+/*rest is images and it's positioning within the different cards*/
 .red{
   background-image: url(https://scontent.fyvr4-1.fna.fbcdn.net/v/t31.0-8/11074394_10153290477051081_5326855389433227467_o.jpg?_nc_cat=102&ccb=2&_nc_sid=cdbe9c&_nc_ohc=8nvUTq3O7DAAX9GvnIe&_nc_oc=AQmCvM04O0BkH1B2vxhEMWvMt5jqjz0N7HVRkukqJL0lhlg4AwF5oiZxaYHuGDjH2Kw&_nc_ht=scontent.fyvr4-1.fna&oh=c3446f91a2d4b3e351f67497800d5fcd&oe=5FCADD5B);
   background-color: white;
